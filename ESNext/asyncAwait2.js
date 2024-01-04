@@ -15,7 +15,7 @@ function gerarNumeroEntre(min, max, sorteados) {
 async function gerarMegaSena(qtdNumeros) {
     const numeros = []
     try {
-        for (const _ of Array(qtdNumeros).fill()) {
+        for (const _ of Array(qtdNumeros)) {
             numeros.push(await gerarNumeroEntre(1, 60, numeros))
         }
         return numeros
