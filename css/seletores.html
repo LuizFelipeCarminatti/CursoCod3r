@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* [feira~=escritorio]  posiveis elementos dentro dos valores escritorio empresa*/
+        /* [feira*=sa] se tem sa em algum dos valores dos seletores */
+        /* span:nth-child(1) filho selecionado*/
+        /* section > :nth-child(odd) filhos impares, e o even sao os pares */
+        /* section > :nth-child(odd), ul   aplica tambem para o ul */
+        /* section > span:nth-of-type(2) segundo elemento do tipo span*/
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 
+        div + p = irmaos seguido do outro
+        div ~ p = irmaos de longe
+        div > p = filho direto
+        div p = qualquer p que esteja dentro da div 
+        div, p = aplica estilo em tudo que foi selecionado
+     -->
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
