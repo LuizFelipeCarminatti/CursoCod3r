@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navegacao(event)" -->
+        <a esperar-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegacao(e) {
+            e.preventDefault()
+            setInterval(() => {
+                window.location.href = e.target.href
+            }, 5000);
+        }
+
+        /* const a = document.querySelector('a')
+        a.onclick = navegacao */
+
+        const a = document.querySelector('[esperar-um-pouco]')
+        a.onclick = navegacao
+    </script>
+</body>
