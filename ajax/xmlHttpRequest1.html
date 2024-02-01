@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true) //true é assicrono
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response)
+                }else if(xhr.status >= 400){
+                    config.erro({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    })
+                }
+            }
+
+            xhr.send()
+        }
+
+        ajax({
+            url: 'dados/estados.json',
+            metodo: 'GET',
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta)
+                
+                let linhas = estados.map(estado => {
+                    const tr = document.createElement('tr')
+                    tr.innerHTML = `
+                        <td>${estado.id}</td>
+                        <td>${estado.nome}</td>
+                        <td>${estado.sigla}</td>
+                    ` 
+                    return tr
+                })
+                let table = document.createElement('table')
+                linhas.forEach(linha => {
+                    table.appendChild(linha)
+                });
+                document.body.appendChild(table)
+            },
+            erro(e){
+                const msg = document.createTextNode(`${e.code}: ${e.text}`)
+                document.body.appendChild(msg)
+            }
+        })
+    </script>
+</body>
