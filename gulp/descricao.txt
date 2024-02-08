@@ -1,0 +1,10 @@
+"babel-core": 
+"babel-preset-env": 
+"gulp": 
+"gulp-babel": atualiza javascript que escreveu para uma versao mais suportada para o browser
+"gulp-concat": concatenar arquivos
+"gulp-sass": 
+"gulp-typescript": 
+"gulp-uglify": pegar arquivo javascript e minificar
+"gulp-uglifycss": pegar aquivos css e minificar
+"typescript": 

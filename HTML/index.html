@@ -43,7 +43,23 @@
 
                 fetch(link.href) /* getAttribute('wm-nav') */
                     .then(res => res.text())
-                    .then(html => conteudo.innerHTML = html)
+                    .then(html => {
+                        conteudo.innerHTML = html
+
+                        var scripts = conteudo.querySelectorAll("script");
+                        for (var i = 0; i < scripts.length; i++) {
+                            if (scripts[i].innerText) {
+                                eval(scripts[i].innerText);
+                            } else {
+                                fetch(scripts[i].src)
+                                    .then(data => data.text())
+                                    .then(r => eval(r))
+
+                            }
+                            // Para não repetir o elemento
+                            scripts[i].parentNode.removeChild(scripts[i]);
+                        }
+                    })
             }
         })
     </script>
