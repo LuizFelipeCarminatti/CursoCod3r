@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var produto_1=require("./produto");function exibir(o){console.log("".concat(o.nome," custa ").concat(o.preco,"!"))}var c=new produto_1.Carro;c.nome="Civic",c.preco=89499,exibir(c);
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.Carro=void 0;var Carro=function(){};exports.Carro=Carro;
