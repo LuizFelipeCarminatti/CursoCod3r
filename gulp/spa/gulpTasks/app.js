@@ -15,7 +15,7 @@ function appHTML() {
 
 function appCSS() {
     
-    return gulp.src('src\assets\sass\index.scss', { allowEmpty: true })
+    return gulp.src('src/assets/sass/index.scss', { allowEmpty: true })
         .pipe(sass().on('error', sass.logError))
         .pipe(uglifycss({ "uglyComments": true }))
         .pipe(concat('app.min.css'))
