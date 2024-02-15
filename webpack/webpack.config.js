@@ -3,18 +3,20 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const path = require('path');
 
 module.exports = { 
     mode: modoDev ? 'development' : 'production',
     entry: './src/principal.js',
     output: {
         filename: 'principal.js',
-        path: __dirname + '/public'
+        path: __dirname + './public'
     },
     devServer: {
         static:{
-            directory: path.join(__dirmname, './public')
+            directory: path.join(__dirname, './public')
         },
+        compress: true,
         port: 9000
     },
     optimization: {
