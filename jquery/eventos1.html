@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #01</h1>
+    <div id='posicao'></div>
+    <div id='cliques'>Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background">
+
+    <script>
+        function posicao(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        $('body').on('mousemove', posicao)
+
+        $('#posicao').mouseover(e => {
+            $('body').off('mousemove', posicao)
+        })
+
+        $('#posicao').mouseout(e => {
+            $('body').on('mousemove', posicao)
+        })
+
+        let cliques = 0
+        $('body').click(e => {
+            $('#cliques').html(++cliques)
+        })
+
+        const corOriginal = $('body').css('background-color')
+        
+        $('input').keyup(function (e) {
+            const valor = $(this).val()
+            if(valor.match(/#[\da-fA-F]{3, 6}/)){
+                $('body').css('background-color', valor)
+            }else{
+                $('body').css('background-color', corOriginal)
+            }
+        })
+    </script>
+</body>
