@@ -16,8 +16,8 @@
     <script>
         $('div').hide(5000).show(5000).fadeOut(5000).fadeIn(5000)
         console.log($('div').get(0))
-        console.log($.isEmptyObject({ nome: null }))
-        console.log(jQuery.inArray(3, [1, 2, 3]))
+        console.log($.isEmptyObject({ nome: null })) //objeto esta ou nao vazio
+        console.log(jQuery.inArray(3, [1, 2, 3])) // se um numero esta dentro de um array
 
         $.fn.fundoVerde = function () {
             this.css('background-color', 'green')

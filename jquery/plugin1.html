@@ -26,7 +26,7 @@
             $.fn.interpretar = function () {
                 const retirarChaves = s => s.substring(2, s.length - 2)
                 const conteudo = $(this).html()
-                const expressoesComChaves = conteudo.match(/\{\.+\}\}/g)
+                const expressoesComChaves = conteudo.match(/\{\{.+\}\}/g)
                 const expressoes = expressoesComChaves.map(retirarChaves)
                 const resultado = expressoes.map(e => eval(e))
 

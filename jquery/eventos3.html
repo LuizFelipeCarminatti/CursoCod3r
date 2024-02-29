@@ -27,7 +27,7 @@
 
     <script>
         function exibirDados(e) {
-            $('resultado').empty() // efeito de limpar
+            $('#resultado').empty() // efeito de limpar
             const div1 = $('<div>')
             const div2 = $('<div>')
 
@@ -39,7 +39,7 @@
 
             div1.append(`<br>type: ${e.type}`)
             div1.append(`<br>which: ${e.which}`)
-            div1.append(`<br>metakey: ${e.metakey}`)
+            div1.append(`<br>metakey: ${e.metakey}`) // se o Ctrl esta precionado
 
             div2.append(`pageX: ${e.pageX} pageY: ${e.pageY}`)
             div2.append(`<br>clientX: ${e.clientX} clientY: ${e.clientY}`)

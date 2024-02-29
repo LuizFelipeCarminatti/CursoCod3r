@@ -1,0 +1,68 @@
+<div class="jumbotron p-4 m-1">
+    <h1 class="display-4">Fundamentos</h1>
+    <p class="lead m-1">Alguns recursos importantes do Bootstrap</p>
+</div>
+
+<nav class="mb-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#/paginas/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Fundamentos</li>
+    </ol>
+</nav>
+
+<div class="exercicio">
+    1. Tipografia -
+    <ul>
+        <li><strong>Reboot</strong> - Torna consistente o estilo entre diferentes browser!</li>
+        <li><strong>Rems</strong> - Baseado no raiz</li>
+        <li>Evita <strong>margin-top</strong> - Provavelmente será necessário adicionar algum espaço</li>
+        <li><strong>box-sizing</strong> border-box</li>
+        <li>Fontes nativas</li>
+    </ul>
+
+    2. Espaços -
+    <!-- (header.cabecalho>h1)+(aside>nav>ul>li) -->
+
+    <div class="mb-5">1</div>
+    <div class="m-4 py-4">2</div>
+    <div class="pt-5">3</div>
+
+    3. Cores -
+
+    <div class="my-1 p-3 bg-primary text-light"></div>
+    <div class="my-1 p-3 bg-danger text-white"></div>
+    <div class="my-1 p-3 bg-warning text-success"></div>
+
+    4. Flex -
+       
+    <div class="d-sm-flex flex-column-reverse p-2">
+        <div class="align-self-end">1</div>
+        <div class="align-self-center">2</div>
+        <div class="align-self-start">3</div>
+    </div>
+
+    5. Imagens -
+
+    <div class="p-2">
+        <img src="/imgs/img1.png" alt="" class="mx-auto d-block" width="400">
+        <img src="/imgs/img1.png" alt="" class="img-thumbnail rounded-circle" width="400">
+        <img src="/imgs/img1.png" alt="" class="img-fluid rounded" width="400">
+    </div>
+
+    6. Float -
+     
+    <div class="my-1 p-3 float-left">1</div>
+    <div class="my-1 p-3 float-right">2</div>
+    <div class="my-1 p-3 float-none">3</div>
+    <div class="my-1 p-3 float-lg-right">4</div>
+
+</div>
+
+<style>
+    .exercicio div {
+        border: solid 8px #000;
+        font-size: 2rem;
+    }
+</style>

@@ -21,18 +21,18 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new TerserPlugin({
+            new TerserPlugin({ //minificar js
                 parallel: true,
                 terserOptions: {
                     ecma: 6,
                 },
             }),
-            new CssMinimizerPlugin({})
+            new CssMinimizerPlugin({}) //minificar os arquivos
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'estilo.css'
+            filename: 'estilo.css' // arquivo a ser gerado
         })
     ],
     module: {
@@ -46,7 +46,7 @@ module.exports = {
             ]
             }, {
                 test:/\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                use: ['file-loader'] //carrega as imagens
             }]
     }
 }
