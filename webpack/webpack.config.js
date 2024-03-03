@@ -7,10 +7,10 @@ const path = require('path');
 
 module.exports = { 
     mode: modoDev ? 'development' : 'production',
-    entry: './src/principal.js',
+    entry: { main: './src/principal.js'},
     output: {
         filename: 'principal.js',
-        path: __dirname + './public'
+        path: __dirname + '/public'
     },
     devServer: {
         static:{

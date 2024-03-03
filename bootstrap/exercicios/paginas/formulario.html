@@ -12,8 +12,61 @@
     </ol>
 </nav>
 
-<p class="lead">
-    <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_black">Documentação Oficial</a>
-</p>
 
-<!-- Formulário -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">
+            Formulário
+        </h5>
+    </div>
+    <div class="card-body">
+        <form action="" class="container-fluid">
+            <div class="form-row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Nome:">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="E-mail:">
+                        </div>
+                        <smaill class="form-text text-muted">
+                            Enviaremos um e-mail para confirmar o cadastro.
+                        </smaill>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="linguagem">Linguagem</label>
+                        <select name="" id="linguagem" class="form-control">
+                            <option value="">Selecionar</option>
+                            <option value="">JS</option>
+                            <option value="">Java</option>
+                            <option value="">Python</option>
+                            <option value="">Ruby</option>
+                            <option value="">Outra</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="form-row mb-0">
+                <div class="col-12 d-flex justify-content-end">
+                    <button class="btn btn-primary mr-2" type="submit">Salvar</button>
+                    <button class="btn btn-secondary" type="reset">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
