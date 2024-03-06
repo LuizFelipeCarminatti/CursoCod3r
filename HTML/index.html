@@ -45,8 +45,8 @@
                     .then(res => res.text())
                     .then(html => {
                         conteudo.innerHTML = html
-
-                        var scripts = conteudo.querySelectorAll("script");
+                        eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1])
+                        /* var scripts = conteudo.querySelectorAll("script");
                         for (var i = 0; i < scripts.length; i++) {
                             if (scripts[i].innerText) {
                                 eval(scripts[i].innerText);
@@ -58,7 +58,7 @@
                             }
                             // Para não repetir o elemento
                             scripts[i].parentNode.removeChild(scripts[i]);
-                        }
+                        } */
                     })
             }
         })

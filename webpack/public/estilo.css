@@ -1,18 +1,1 @@
-/*!********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/css/estilo.css ***!
-  \********************************************************************************************************************/
-body {
-  background-color: cornflowerblue;
-  background-image: url(4e95a37ee7e0d864e2c7.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh; }
-
-/*!*********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/index.scss ***!
-  \*********************************************************************************************************************/
-.botao {
-  background-color: #19b3e6;
-  color: #fff;
-  font-size: 1.8em; }
-
+body{background-color:#6495ed;background-image:url(4e95a37ee7e0d864e2c7.png);background-position:50%;background-repeat:no-repeat;height:100vh}.botao{background-color:#19b3e6;color:#fff;font-size:1.8em}
