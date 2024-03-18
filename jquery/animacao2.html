@@ -29,27 +29,37 @@
 
     <script>
         function largura(valor, duracao, callback) {
-            $('div').animate({ width: `+=${valor}` }, duracao, callback)
+            return new Promise(resolve => {
+                resolve($('div').animate({ width: `+=${valor}` }, duracao, callback))
+            })
         }
 
         function diagonal(valor, duracao, callback) {
-            $('div').animate({ top: `+=${valor}`, laft: `+=${valor}` }, duracao, callback)
+            return new Promise(resolve => {
+                resolve($('div').animate({ top: `+=${valor}`, laft: `+=${valor}` }, duracao, callback))
+            })
         }
 
         function girar(valor, duracao, callback) {
-            $('div').animate({ transform: `+=${valor}` }, {
-                step: function (valor) {
-                    $(this).css('transform', `rotate(${valor}deg)`)
-                }, duration: duracao
-            }, 'linear')
+            return new Promise(resolve => {
+                resolve(
+                    $('div').animate({ transform: `+=${valor}` }, {
+                        step: function (valor) {
+                            $(this).css('transform', `rotate(${valor}deg)`)
+                        }, duration: duracao
+                    }, 'linear')
+                )
+            })
         }
 
-        largura(300, 100, () => {
+        /* largura(300, 100, () => {
             largura(-300, 'slow', () => {
                 diagonal(300, 600, () => {
                     girar(3300, 3000)
                 })
             })
-        })
+        }) */
+
+        Promise.all([largura(300, 100), largura(-300, 'slow'), diagonal(300, 600), girar(3300, 3000)])
     </script>
 </body>

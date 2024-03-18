@@ -37,7 +37,7 @@ $.fn.cityButtons = function () {
     const btnGroup = $('<div>').addClass(['btn-group'])
     btnGroup.append(btns)
 
-    cityButtons.html(btnGroup)
+    $(this).html(btnGroup)
     return this
 }
 onLoadHtmlSuccess(function () {

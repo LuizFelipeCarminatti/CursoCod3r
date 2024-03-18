@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = { 
     mode: modoDev ? 'development' : 'production',
@@ -33,6 +34,12 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'estilo.css' // arquivo a ser gerado
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/', to: '**/*.html' },
+                { from: 'src/', to: 'imgs/**/*' }
+            ]
         })
     ],
     module: {
@@ -47,6 +54,9 @@ module.exports = {
             }, {
                 test:/\.(png|svg|jpg|gif)$/,
                 use: ['file-loader'] //carrega as imagens
+            }, {
+                test: /.(ttf|otf|eot|svg|woff(2)?)$/,
+                use: ['file-loader']
             }]
     }
 }
