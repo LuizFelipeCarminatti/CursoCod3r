@@ -4,14 +4,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const htmlMinimizerWebpackPlugin = require('html-minimizer-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = { 
     mode: modoDev ? 'development' : 'production',
     entry: { main: './src/principal.js'},
     output: {
         filename: 'principal.js',
-        path: __dirname + '/public'
+        path: path.join(__dirname, '/public')
     },
     devServer: {
         static:{
@@ -28,19 +29,15 @@ module.exports = {
                     ecma: 6,
                 },
             }),
-            new CssMinimizerPlugin({}) //minificar os arquivos
+            new CssMinimizerPlugin({}), //minificar os arquivos
+            new htmlMinimizerWebpackPlugin()
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'estilo.css' // arquivo a ser gerado
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: 'src/', to: '**/*.html' },
-                { from: 'src/', to: 'imgs/**/*' }
-            ]
-        })
+        new HtmlWebpackPlugin()
     ],
     module: {
         rules: [{
