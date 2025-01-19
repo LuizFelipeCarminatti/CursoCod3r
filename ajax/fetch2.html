@@ -41,22 +41,22 @@
             } 
 
             const resultado = document.getElementById('resultado')
-            /* fetch(form.action, options)
+            await fetch(form.action, options)
             .then(resp => resp.json())
             .then(json => {
                     resultado.innerHTML = JSON.stringify(json)
                 }).catch(e => {
                     resultado.innerHTML = e
-                }) */
+                })
 
 
-                try {
+                /* try {
                     const resp = await fetch(form.action, options)
                     const json = await resp.json()
                     resultado.innerHTML = JSON.stringify(json)
                 } catch (error) {
                     resultado.innerHTML = error
-                }
+                } */
         }
     </script>
 </body>
