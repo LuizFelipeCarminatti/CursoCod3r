@@ -1,24 +1,13 @@
 'use client'
-
-interface ClienteData {
-    id: string
-    nome: string
-    idade: string
-}
+import Cliente from "@/core/Cliente"
 
 interface TabelaProps {
-    clientes: ClienteData[];
+    clientes: Cliente[];
+    handlerSelecionado?: (cliente: Cliente) => void
+    handlerExcluido?: (cliente: Cliente) => void
 }
 
-function Tabela({ clientes }: TabelaProps) {
-
-    const handlerSelecionado = (cliente: ClienteData) => {
-        console.log(cliente)
-    }
-
-    const handlerExcluido = (cliente: ClienteData) => {
-        console.log(cliente)
-    }
+function Tabela({ clientes, handlerSelecionado, handlerExcluido }: TabelaProps) {
 
     function renderizarDados() {
         return clientes?.map((cliente, i) => {
