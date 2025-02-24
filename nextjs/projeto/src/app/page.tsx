@@ -5,34 +5,45 @@ import Tabela from "@/components/Tabela";
 import Cliente from "@/core/Cliente";
 import Botao from "@/components/Botao";
 import Formulario from "@/components/Formulario";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ClienteRepositorio from "@/core/ClienteRepositorio";
+import ColecaoCliente from "@/backend/db/Colecao";
 
 export default function Home() {
 
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
   const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [clientes, setClientes] = useState<Cliente[]>([])
+
+  const repo: ClienteRepositorio = new ColecaoCliente()
 
   const onhandlerSelecionado = (cliente: Cliente) => {
     setCliente(cliente)
+    setVisivel('form')
   }
 
   const onhandlerExcluido = (cliente: Cliente) => {
-    console.log(cliente)
+    repo.excluir(cliente)
+    obterTodos()
   }
 
-  const clientes = [
-    new Cliente('1', 'Luiz Felipe Carminatti', '29'),
-    new Cliente('2', 'Ivanir Carminatti Diniz', '68'),
-    new Cliente('3', 'Cristiane Carminatti Diniz', '41'),
-  ].map(cliente => ({
-    nome: cliente.nome,
-    idade: cliente.idade,
-    id: cliente.id,
-  }))
+  useEffect(obterTodos, [])
+  
+  function obterTodos() {
+    repo.obterTodos().then(cliente => {
+      setClientes(cliente)
+      setVisivel('tabela')
+    })   
+  }
 
-  function salvarCliente(cliente: Cliente) {
-    console.log(cliente)
-    setVisivel('tabela')
+  async function salvarCliente(cliente: Cliente) {
+    await repo.salvar(cliente)
+    obterTodos()
+  }
+
+  function novoCliente() {
+    setCliente(Cliente.vazio())
+    setVisivel('form')
   }
 
   return (
@@ -41,7 +52,7 @@ export default function Home() {
         {visivel === 'tabela' ? (
           <div>
             <div className="flex justify-end">
-              <Botao className="mb-4" onClick={() => setVisivel('form')}>Novo Cliente</Botao>
+              <Botao className="mb-4" onClick={novoCliente}>Novo Cliente</Botao>
             </div>
             <Tabela clientes={clientes} handlerSelecionado={onhandlerSelecionado} handlerExcluido={onhandlerExcluido}></Tabela>
           </div>
