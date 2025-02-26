@@ -1,8 +1,9 @@
 import Titulo from "./Titulo"
+import { ReactNode } from 'react'
 
 interface Tipagem {
     titulo: string
-    children: any
+    children: ReactNode
 }
 
 export default function Layout(params: Tipagem) {
